@@ -1,4 +1,3 @@
-
 package Assignment2;
 import javax.swing.*;
 import java.awt.*;
@@ -91,20 +90,20 @@ public class Calculator2_0 extends JFrame implements ActionListener {
     private String symbol = null;// 记录操作符
 
     @Override
-
-
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
         String click = e.getActionCommand(); // 获取点击到的值
 
         if (".0123456789".indexOf(click) != -1) {
+            // 如果点击的是数字或小数点，则将其添加到输入框中
             this.input_text.setText(input_text.getText() + click);
             this.input_text.setHorizontalAlignment(JTextField.RIGHT);
         } else if (click.matches("[\\+\\-*/]{1}")) {
+            // 如果点击的是操作符，则记录第一个输入的数和操作符，并清空输入框
             symbol = click;
             firstInput = this.input_text.getText();
             this.input_text.setText("");
         } else if (click.equals("=")) {
+            // 如果点击的是等号，则进行计算并显示结果
             Double a = Double.valueOf(firstInput);
             Double b = Double.valueOf(this.input_text.getText());
             Double result = null;
@@ -138,4 +137,3 @@ public class Calculator2_0 extends JFrame implements ActionListener {
     }
 
 }
-
